@@ -6,7 +6,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 " pathogen (manage plugins)
-execute pathogen#infect
+execute pathogen#infect()
 
 syntax enable
 filetype plugin indent on
@@ -16,3 +16,4 @@ set background=light
 colorscheme solarized
 " NERDTree mapping
 map <F2> :NERDTreeToggle<cr>
+map <F3> :TlistToggle<cr>
