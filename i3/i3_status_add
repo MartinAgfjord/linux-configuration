@@ -1,0 +1,35 @@
+#!/bin/sh
+# shell script to prepend i3status with more stuff
+
+yellow='#FFFF00'
+red='#FF0000'
+green='#00FF00'
+
+i3status | while :
+do
+  #expense=$(~attila/bin/expense_calc.sh /home/attila/expense_calculator/citibank.exp)
+
+  id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')
+  name=$(xprop -id $id | awk '/WM_CLASS/{$1=$2="";print}' | cut -d'"' -f2)
+
+  acpi=$(acpi -b)
+  percentage=$(echo $acpi | perl -ne 'print "$1" if /(\d+)%/;')
+  discharging=""
+  if [[ "$acpi" == *Discharging* ]]
+  then
+    discharging="(Discharging)";
+  fi
+
+  color=$red
+	#[ $expense -lt '60' ] && color=$yellow
+	#[ $expense -lt '50' ] && color=$green
+
+  acpicolor=$green
+	[ $percentage -lt '50' ] && acpicolor=$yellow
+	[ $percentage -lt '20' ] && acpicolor=$red
+  read line
+  echo $line |
+    sed s/\\[{/'[{"full_text":"Battery: '$percentage'%'$discharging'","color":"'$acpicolor'"},{'/ |
+    sed s/\\[{/'[{"full_text":" '$name' ","color":"'#224444'"},{'/
+	#echo $line | sed s/\\[{/'[{"full_text":"Expense: '$expense' SEK","color":"'$color'"},{'/
+done
