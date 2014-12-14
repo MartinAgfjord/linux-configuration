@@ -1,1 +1,0 @@
-/media/gamma/home/eidel/.vim
