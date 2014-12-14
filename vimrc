@@ -1,0 +1,1 @@
+/media/gamma/home/eidel/.vimrc
