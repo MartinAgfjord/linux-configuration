@@ -46,10 +46,10 @@ bindsym $mod+q kill
  bindsym $mod+d exec --no-startup-id dmenu_run
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+Ctrl+h focus left
+bindsym $mod+Ctrl+j focus down
+bindsym $mod+Ctrl+k focus up
+bindsym $mod+Ctrl+l focus right
 
 # alternatively, you can use the cursor keys:
 #bindsym $mod+Left focus left
@@ -58,10 +58,10 @@ bindsym $mod+l focus right
 #bindsym $mod+Right focus right
 
 # move focused window
-#bindsym $mod+Shift+j move left
-#bindsym $mod+Shift+k move down
-#bindsym $mod+Shift+l move up
-#bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 #bindsym $mod+Shift+Left move left
@@ -177,7 +177,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 30 -steps 1
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 -steps 1
 
 #Lock screen
-bindsym $mod+Ctrl+L exec i3lock -c 000000
+#bindsym $mod+Ctrl+L exec i3lock -c 000000
 #Suspend
 bindsym XF86PowerOff exec $HOME/Scripts/lock-suspend.sh
 #Print screen
