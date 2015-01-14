@@ -15,8 +15,8 @@ set $ws1 1: web
 set $ws2 2: editor
 set $ws3 3: ide
 set $ws4 4: terminal
-set $ws5 5: music
-set $ws6 6: social
+set $ws5 5: git
+set $ws6 6: server
 set $ws7 7: mail
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -181,7 +181,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 -steps 1
 #Suspend
 bindsym XF86PowerOff exec $HOME/Scripts/lock-suspend.sh
 #Print screen
-bindsym Print exec scrot
+bindsym Print exec cd ~ && scrot -e 'mv $f ~/Screenshots && shotwell ~/Screenshots/$f' 
 #Change monitor
 bindsym XF86Display exec $HOME/Scripts/changeresolution.py
 #bindsym XF86Display exec gnome-screenshot
