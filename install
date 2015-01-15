@@ -1,10 +1,31 @@
 #!/bin/bash
-mkdir ~/.vim-plugins
-cd ~/.vim-plugins
+SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-# Download vim plugins
+# Remove old files
+rm -rf ~/.vim_old ~/.config/Terminal_old
+
+# Install scripts
+mv ~/.bashrc ~/.bashrc_old ; ln -s $SCRIPT_DIR/bashrc ~/.bashrc 
+mv ~/.vimrc ~/.vimrc_old ; ln -s $SCRIPT_DIR/vimrc ~/.vimrc
+
+# Install vim plugins
+mv ~/.vim ~/.vim_old ; mkdir ~/.vim
+mv ~/.vim ~/.vim_old ; mkdir -p ~/.vim/bundle
+
+mv ~/.config/Terminal ~/.config/Terminal_old
+mkdir -p ~/.config/Terminal
+cd ~/.config/Terminal
+ln -s $SCRIPT_DIR/solarized-terminal
+ln -s solarized-terminal/light/terminalrc
+# Download vim-pathogen
+cd ~/.vim/
 git clone https://github.com/tpope/vim-pathogen
+ln -s ~/.vim/vim-pathogen/autoload
+
+# Download other vim plugins
+cd ~/.vim/bundle
 git clone https://github.com/scrooloose/nerdcommenter
 git clone https://github.com/scrooloose/nerdtree
 git clone https://github.com/vim-scripts/taglist.vim
 git clone https://github.com/altercation/vim-colors-solarized
+
