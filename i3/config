@@ -181,7 +181,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 -steps 1
 #Suspend
 bindsym XF86PowerOff exec $HOME/Scripts/lock-suspend.sh
 #Print screen
-bindsym Print exec cd ~ && scrot -e 'mv $f ~/Screenshots && shotwell ~/Screenshots/$f' 
+bindsym Print exec cd ~ && scrot -e 'mv $f ~/Screenshots && gthumb ~/Screenshots/$f' 
+bindsym Ctrl+Print exec cd ~ && scrot -e 'mv $f ~/Screenshots' 
 #Change monitor
 bindsym XF86Display exec $HOME/Scripts/changeresolution.py
 #bindsym XF86Display exec gnome-screenshot
