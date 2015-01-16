@@ -24,7 +24,7 @@ alias netport='netstat -tulpn'
 search(){
         locate $1 | /bin/grep $(pwd)/
 }
-alias search=search
+alias srch=search
 
 # Print working directory and a file
 pwf(){
@@ -43,4 +43,4 @@ do
     ps aux | grep $ARG | awk '{ print $2; }' | xargs kill -9
 done
 }
-alias killbyname=killbyname
+alias kbn=killbyname
