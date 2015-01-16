@@ -12,7 +12,7 @@ syntax enable
 filetype plugin indent on
 let mapleader=","
 
-set background=light
+set background=dark
 colorscheme solarized
 " NERDTree mapping
 map <F2> :NERDTreeToggle<cr>
