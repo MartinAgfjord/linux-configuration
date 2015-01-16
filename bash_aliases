@@ -26,11 +26,15 @@ alias pwf=pwf
 alias watch='watch -n0.5'
 killbyname(){
 # EDIT for now always force kills
-        if [[ "$1" == "-9" ]]; then
-                    ps aux | grep $2 | awk '{ print $2; }' | xargs kill $1
-                        else
-                                    ps aux | grep $1 | awk '{ print $2; }' | xargs kill -9
-                                        fi
+#if [[ "$1" == "-9" ]]; then
+#    ps aux | grep $2 | awk '{ print $2; }' | xargs kill $1
+#else
+#    ps aux | grep $1 | awk '{ print $2; }' | xargs kill -9
+#fi
+for ARG in "$@"
+do
+    ps aux | grep $ARG | awk '{ print $2; }' | xargs kill -9
+done
 }
 alias killbyname=killbyname
 
