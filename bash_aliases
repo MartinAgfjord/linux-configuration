@@ -14,7 +14,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Trim terminal working directory
-alias short='export PS1="\u@\h:$ "'
+alias short='export PS1="\u@\h:€ "'
 alias normal='export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w\$ "'
 
 # List all listening ports and the corresponding processes
