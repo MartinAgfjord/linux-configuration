@@ -37,10 +37,31 @@ alias watch='watch -n0.5'
 
 # Kill all processes which includes one or more names in the command who executed it
 killbyname(){
-# EDIT for now always force kills
 for ARG in "$@"
 do
     ps aux | grep $ARG | awk '{ print $2; }' | xargs kill -9
 done
 }
 alias kbn=killbyname
+
+alias gvim='gvim --remote'
+fnd(){
+    find . -iname *$1*
+}
+alias fnd=fnd
+sif(){
+
+    srch $0 | xargs grep $1
+}
+alias sif=sif
+lessy(){
+    if [[ $1 == "-"* ]]
+    then
+        FILE_TO_OPEN=$(echo $1 | cut -d '-' -f 2)
+        ls -al | tail -n +$((3+$FILE_TO_OPEN)) | awk '{print $9}' | awk 'NR==1{print $1}' | less
+    else
+        less $1
+    fi
+}
+#alias less=lessy
+alias xclip='xclip -selection c'
