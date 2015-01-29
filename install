@@ -17,7 +17,7 @@ mv ~/.config/Terminal ~/.config/Terminal_old
 mkdir -p ~/.config/Terminal
 cd ~/.config/Terminal
 ln -s $SCRIPT_DIR/solarized-terminal
-ln -s solarized-terminal/light/terminalrc
+ln -s solarized-terminal/dark/terminalrc
 # Download vim-pathogen
 cd ~/.vim/
 git clone https://github.com/tpope/vim-pathogen
