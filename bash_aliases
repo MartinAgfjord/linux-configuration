@@ -21,38 +21,39 @@ alias normal='export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}
 alias netport='netstat -tulpn'
 
 # Search in working directory using locate
-search(){
+locate_in_directory(){
         locate $1 | /bin/grep $(pwd)
 }
-alias srch=search
+alias srch=locate_in_directory
 
-# Print working directory and a file
-pwf(){
+print_working_directory_with_file(){
         echo $(pwd)/$1
 }
-alias pwf=pwf
+alias pwf=print_working_directory_with_file
 
 # Change default behaviour of watch
 alias watch='watch -n0.5'
 
 # Kill all processes which includes one or more names in the command who executed it
-killbyname(){
+kill_by_name(){
 for ARG in "$@"
 do
     ps aux | grep $ARG | awk '{ print $2; }' | xargs kill -9
 done
 }
-alias kbn=killbyname
+alias kbn=kill_by_name
 
 alias gvim='gvim --remote'
-fnd(){
+
+find_case_insensitive(){
     find . -iname "*$1*"
 }
-alias fnd=fnd
-sif(){
+alias fnd=find_case_insensitive
+
+search_in_files(){
     find . -iname "$1" | xargs egrep -i -s "$2"
 }
-alias sif=sif
+alias sif=search_in_files
 alias sjava='sif "*.java"'
 alias sxml='sif "*.xml"'
 alias xclip='xclip -selection c'
