@@ -50,7 +50,7 @@ fnd(){
 }
 alias fnd=fnd
 sif(){
-    find . -iname "$1" | xargs egrep -i -s $2
+    find . -iname "$1" | xargs egrep -i -s "$2"
 }
 alias sif=sif
 alias sjava='sif "*.java"'
