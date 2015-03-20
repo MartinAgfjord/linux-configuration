@@ -22,7 +22,7 @@ alias netport='netstat -tulpn'
 
 # Search in working directory using locate
 search(){
-        locate $1 | /bin/grep $(pwd)/
+        locate $1 | /bin/grep $(pwd)
 }
 alias srch=search
 
@@ -46,22 +46,14 @@ alias kbn=killbyname
 
 alias gvim='gvim --remote'
 fnd(){
-    find . -iname *$1*
+    find . -iname "*$1*"
 }
 alias fnd=fnd
 sif(){
-
-    srch $0 | xargs grep $1
+    find . -iname "$1" | xargs egrep -i -s $2
 }
 alias sif=sif
-lessy(){
-    if [[ $1 == "-"* ]]
-    then
-        FILE_TO_OPEN=$(echo $1 | cut -d '-' -f 2)
-        ls -al | tail -n +$((3+$FILE_TO_OPEN)) | awk '{print $9}' | awk 'NR==1{print $1}' | less
-    else
-        less $1
-    fi
-}
-#alias less=lessy
+alias sjava='sif "*.java"'
+alias sxml='sif "*.xml"'
 alias xclip='xclip -selection c'
+alias tail='tail -f -n0'
