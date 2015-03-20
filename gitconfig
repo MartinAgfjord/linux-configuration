@@ -1,0 +1,11 @@
+[user]
+	name = <firstname> <lastname>
+	email = <firstname>.<lastname>@<domain>
+[core]
+	editor = /usr/bin/vim
+	autocrlf = input
+	safecrlf = true
+[branch]
+	autosetuprebase = always
+[diff]
+    external=git-meld
