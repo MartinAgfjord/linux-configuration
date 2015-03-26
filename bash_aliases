@@ -41,7 +41,7 @@ do
     ps aux | grep $ARG | awk '{ print $2; }' | xargs kill -9
 done
 }
-alias kbn=kill_by_name
+alias kbn='kill_by_name'
 
 alias gvim='gvim --remote'
 
@@ -56,5 +56,10 @@ search_in_files(){
 alias sif=search_in_files
 alias sjava='sif "*.java"'
 alias sxml='sif "*.xml"'
+alias sprop='sif "*.properties"'
 alias xclip='xclip -selection c'
 alias tail='tail -f -n0'
+function xmlformat(){
+    echo "$1" > /tmp/tmp_xml.xml ; tr -d "\n\r" < /tmp/tmp_xml.xml > /tmp/tmp_xml_no_line_breaks.xml ; xmllint --format /tmp/tmp_xml_no_line_breaks.xml
+}
+alias xmlformat=xmlformat
