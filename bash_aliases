@@ -53,13 +53,22 @@ alias fnd=find_case_insensitive
 search_in_files(){
     find . -iname "$1" | xargs egrep -i -s "$2"
 }
-alias sif=search_in_files
+alias sif='search_in_files'
 alias sjava='sif "*.java"'
 alias sxml='sif "*.xml"'
 alias sprop='sif "*.properties"'
 alias xclip='xclip -selection c'
 alias tail='tail -f -n0'
-function xmlformat(){
+function remove_line_breaks_and_ident_xml(){
     echo "$1" > /tmp/tmp_xml.xml ; tr -d "\n\r" < /tmp/tmp_xml.xml > /tmp/tmp_xml_no_line_breaks.xml ; xmllint --format /tmp/tmp_xml_no_line_breaks.xml
 }
-alias xmlformat=xmlformat
+alias xmlformat='remove_line_breaks_and_ident_xml'
+function search_for_two_words(){
+    fnd "$1" | xargs grep -l -s -i "$2" | xargs egrep -l -s -i "$3"
+}
+alias s2java='search_for_two_words "*.java"'
+function search_class_who_implements(){
+    CLASS=`echo "$1" | awk -F '.' '{print $NF }'`
+    s2java $1 "implements.*$CLASS"
+}
+alias simpl='search_class_who_implements'
