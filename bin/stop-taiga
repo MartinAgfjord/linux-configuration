@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ps aux | grep "runserver" | awk '{ print $2; }' | xargs kill -9
+ps aux | grep "gulp" | awk '{ print $2; }' | xargs kill -9
