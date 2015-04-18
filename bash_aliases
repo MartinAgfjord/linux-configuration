@@ -22,7 +22,7 @@ alias netport='netstat -tulpn'
 
 # Search in working directory using locate
 locate_in_directory(){
-        locate $1 | /bin/grep $(pwd)
+        locate $1 | /bin/grep --colour $(pwd)
 }
 alias srch=locate_in_directory
 
@@ -38,7 +38,7 @@ alias watch='watch -n0.5'
 kill_by_name(){
 for ARG in "$@"
 do
-    ps aux | grep $ARG | awk '{ print $2; }' | xargs kill -9
+    ps aux | grep --colour $ARG | awk '{ print $2; }' | xargs kill -9
 done
 }
 alias kbn='kill_by_name'
@@ -46,12 +46,12 @@ alias kbn='kill_by_name'
 alias gvim='gvim --remote'
 
 find_case_insensitive(){
-    find . -iname "*$1*"
+    find . -iname "*$1*" | awk '{ printf "\""; printf $NF; print "\""}'
 }
 alias fnd=find_case_insensitive
 
 search_in_files(){
-    find . -iname "$1" | xargs egrep -i -s "$2"
+    find . -iname "$1" | xargs egrep --colour -i -s "$2"
 }
 alias sif='search_in_files'
 alias sjava='sif "*.java"'
@@ -64,7 +64,7 @@ function remove_line_breaks_and_ident_xml(){
 }
 alias xmlformat='remove_line_breaks_and_ident_xml'
 function search_for_two_words(){
-    fnd "$1" | xargs grep -l -s -i "$2" | xargs egrep -l -s -i "$3"
+    fnd "$1" | xargs grep --colour -l -s -i "$2" | xargs egrep --colour -l -s -i "$3"
 }
 alias s2java='search_for_two_words "*.java"'
 function search_class_who_implements(){
@@ -72,3 +72,23 @@ function search_class_who_implements(){
     s2java $1 "implements.*$CLASS"
 }
 alias simpl='search_class_who_implements'
+function cat_with_highlights(){
+    cat $1 | egrep --colour "$2|"
+}
+alias catcol='cat_with_highlights'
+function color_code_log4j(){
+    awk '
+    /INFO/ {print "\033[32m" $0 "\033[39m"}
+    /ERROR/ {print "\033[31m" $0 "\033[39m"}
+    /FATAL/ {print "\033[31m" $0 "\033[39m"}
+    /WARN/ {print "\033[33m" $0 "\033[39m"}
+    /joined/ {print "\033[34m" $0 "\033[39m"}
+    '
+}
+alias log4jcolor='color_code_log4j'
+alias term='$(xfce4-terminal)'
+function save_dir_and_cd(){
+    builtin cd $1
+    echo $(pwd) > /tmp/curr_dir.txt
+}
+alias cd='save_dir_and_cd'
