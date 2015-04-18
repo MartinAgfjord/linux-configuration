@@ -1,0 +1,4 @@
+How to install a new screen layout and make it run on login
+-----------------------------------------------------------
+(i3-wm) Add a reference to a layout in  ~/.profile and it will run on login (at least if running Ubuntu)
+(gnome) Use the GUI-tool ("Startup applications")
