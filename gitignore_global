@@ -1,3 +1,6 @@
 *.sw*
 *.idea
 *.iml
+apidoc.html
+nb-configuration.xml
+rebel.xml
