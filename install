@@ -9,6 +9,7 @@ mv ~/.bashrc ~/.bashrc_old ; ln -s $SCRIPT_DIR/bashrc ~/.bashrc
 mv ~/.bash_aliases ~/.bash_aliases_old ; ln -s $SCRIPT_DIR/bash_aliases ~/.bash_aliases 
 mv ~/.vimrc ~/.vimrc_old ; ln -s $SCRIPT_DIR/vimrc ~/.vimrc
 mv ~/.gitignore_global ~/.gitignore_global_old ; ln -s $SCRIPT_DIR/gitignore_global ~/.gitignore_global
+mv ~/.ackrc ~/.ackrc_old ; ln -s $SCRIPT_DIR/ackrc ~/.ackrc
 git config --global core.excludesfile ~/.gitignore_global
 
 # Install vim plugins
