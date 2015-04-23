@@ -1,0 +1,4 @@
+#!/bin/bash
+source "/usr/share/virtualenvwrapper/virtualenvwrapper.sh"
+cd /opt/taiga/taiga-back && workon taiga && python manage.py runserver > log/stdout.log&
+cd /opt/taiga/taiga-front-dist && gulp > log/stdout.log &
