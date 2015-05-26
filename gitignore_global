@@ -4,3 +4,5 @@
 apidoc.html
 nb-configuration.xml
 rebel.xml
+*.class
+target/
