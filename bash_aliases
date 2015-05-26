@@ -54,9 +54,12 @@ search_in_files(){
     find . -iname "$1" | xargs egrep --colour -i -s "$2"
 }
 alias sif='search_in_files'
-alias sjava='ack-grep --java'
-alias sxml='ack-grep --xml'
-alias sprop='ack-grep --properties"'
+alias sjava='sif "*.java"'
+alias sxml='sif "*.xml"'
+alias sprop='sif "*.properties"'
+#alias sjava='ack-grep --java'
+#alias sxml='ack-grep --xml'
+#alias sprop='ack-grep --properties'
 alias xclip='xclip -selection c'
 alias tail='tail -f -n0'
 function remove_line_breaks_and_ident_xml(){
