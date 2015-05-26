@@ -10,6 +10,9 @@ mv ~/.bash_aliases ~/.bash_aliases_old ; ln -s $SCRIPT_DIR/bash_aliases ~/.bash_
 mv ~/.vimrc ~/.vimrc_old ; ln -s $SCRIPT_DIR/vimrc ~/.vimrc
 mv ~/.gitignore_global ~/.gitignore_global_old ; ln -s $SCRIPT_DIR/gitignore_global ~/.gitignore_global
 mv ~/.ackrc ~/.ackrc_old ; ln -s $SCRIPT_DIR/ackrc ~/.ackrc
+mv ~/.Xresources ~.Xresources_old ; ln -s $SCRIPT_DIR/Xresources ~/.Xresources
+
+
 git config --global core.excludesfile ~/.gitignore_global
 
 # Install vim plugins
@@ -33,3 +36,7 @@ git clone https://github.com/scrooloose/nerdtree
 git clone https://github.com/vim-scripts/taglist.vim
 git clone https://github.com/altercation/vim-colors-solarized
 
+# Reload Xresources
+xrdb -merge ~/.Xresources
+# Reload bash config
+source ~/.bashrc
