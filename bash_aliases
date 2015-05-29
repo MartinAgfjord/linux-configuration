@@ -42,7 +42,9 @@ do
 done
 }
 alias kbn='kill_by_name'
-
+kill_by_two_words(){
+    ps aux | grep $1 | grep $2 | awk '{ print $2; }' | xargs kill -9
+}
 alias gvim='gvim --remote'
 
 find_case_insensitive(){
@@ -50,8 +52,16 @@ find_case_insensitive(){
 }
 alias fnd=find_case_insensitive
 
+cat_interval(){
+    /usr/bin/tail -n +$2 $1 | head -n $(($3-$2+1)) 
+}
+cat_lines_before_and_after(){
+    line=$(sed -n "$4{p;q}" $3)
+    cat_interval $3 $(($4-$1)) $(($4+$2)) | egrep --colour "$line|"
+}
+alias caten='cat_lines_before_and_after 10 10' 
 search_in_files(){
-    find . -iname "$1" | xargs egrep --colour -i -s "$2"
+    find . -iname "$1" | xargs egrep --colour -i -n -s "$2"
 }
 alias sif='search_in_files'
 alias sjava='sif "*.java"'
@@ -94,4 +104,4 @@ function save_dir_and_cd(){
     builtin cd $1
     echo $(pwd) > /tmp/curr_dir.txt
 }
-alias cd='save_dir_and_cd'
+#alias cd='save_dir_and_cd'
