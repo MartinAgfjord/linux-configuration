@@ -61,7 +61,7 @@ cat_lines_before_and_after(){
 }
 alias caten='cat_lines_before_and_after 10 10' 
 search_in_files(){
-    find . -iname "$1" | xargs egrep --colour -i -n -s "$2"
+    find  . -type f -iname "$1" | xargs egrep --colour -i -n -s "$2"
 }
 alias sif='search_in_files'
 alias sjava='sif "*.java"'
@@ -105,3 +105,8 @@ function save_dir_and_cd(){
     echo $(pwd) > /tmp/curr_dir.txt
 }
 #alias cd='save_dir_and_cd'
+
+find_class_in_jars() {
+    find . -name '*.jar' -type f | xargs -i bash -c "jar -tf {}| tr / . | grep $1 && echo {}"
+}
+alias sjar='find_class_in_jars'
