@@ -204,5 +204,5 @@ exec xscreensaver -no-splash
 #exec $HOME/Scripts/autostart-for-i3-simple.sh
 
 # "Remove" title bar
-for_window [class="^.*"] border pixel 5
+#for_window [class="^.*"] border pixel 5
 #new_window 1pixel
