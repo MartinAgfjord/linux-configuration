@@ -1,2 +1,4 @@
 #!/bin/bash
 mvn clean install ; find ~/.m2 -iname '*kanoting*.ear' | xargs -I{} cp {} /opt/wildfly/standalone/deployments/kanoting-ear.ear
+sleep 6
+bash $1
