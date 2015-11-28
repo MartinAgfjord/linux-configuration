@@ -1,0 +1,6 @@
+#!/bin/bash
+display=$(xrandr | egrep 'connected.*primary' | awk '{ print $1 }')
+
+xrandr --newmode "Full HD" 173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +v
+xrandr --addmode $display "Full HD"
+xrandr --output $display --mode "Full HD"
