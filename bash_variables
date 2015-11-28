@@ -1,0 +1,2 @@
+#!/bin/bash
+export WILDFLY_HOME=/opt/wildfly
