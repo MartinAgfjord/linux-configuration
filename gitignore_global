@@ -6,3 +6,4 @@ nb-configuration.xml
 rebel.xml
 *.class
 target/
+build-uno
