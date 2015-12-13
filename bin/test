@@ -1,4 +1,4 @@
 #!/bin/bash
-mvn clean install ; find ~/.m2 -iname '*kanoting*.ear' | xargs -I{} cp {} /opt/wildfly/standalone/deployments/kanoting-ear.ear
+mvn clean install ; find ~/.m2 -iname '*kanoting*.war' | xargs -I{} cp {} /opt/wildfly/standalone/deployments/kanoting-web.war
 sleep 6
 bash $1
