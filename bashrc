@@ -82,6 +82,10 @@ if [ -f ~/.work_aliases ]; then
     . ~/.work_aliases
 fi
 
+#Generated (not stored on github)
+if [ -f ~/.bash_generated ]; then
+    . ~/.bash_generated
+fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

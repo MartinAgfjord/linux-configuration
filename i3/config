@@ -166,43 +166,33 @@ bar {
 #}
 
 # Volume
-bindsym XF86AudioRaiseVolume exec $HOME/Scripts/notify-volume.bash UP
-bindsym XF86AudioLowerVolume exec $HOME/Scripts/notify-volume.bash DOWN
-bindsym XF86AudioMute exec $HOME/Scripts/notify-volume.bash MUTE
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 30 -steps 1
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 -steps 1
 
 #Lock screen
-#bindsym $mod+Ctrl+L exec i3lock -c 000000
+bindsym $mod+Shift+Escape exec i3lock -c 000000
 #Suspend
-bindsym XF86PowerOff exec $HOME/Scripts/lock-suspend.sh
+bindsym XF86PowerOff exec $LINUX_CONFIG_PATH/bin/lock-suspend.sh
 #Print screen
 bindsym Print exec cd ~ && scrot -e 'mv $f ~/Screenshots && gthumb ~/Screenshots/$f' 
 bindsym Ctrl+Print exec cd ~ && scrot -e 'mv $f ~/Screenshots' 
 #Change monitor
-bindsym XF86Display exec $HOME/Scripts/changeresolution.py
+bindsym XF86Display exec $LINUX_CONFIG_PATH/bin/changeresolution.py
 #bindsym XF86Display exec gnome-screenshot
 #Sound stuff
 exec pulseaudio --start
 exec volnoti -t 0.3 -a 0.5 -r 5
 
 #Monitor
-exec $HOME/Scripts/changeresolution.py first
+exec $LINUX_CONFIG_PATH/bin/changeresolution.py first
 #exec /home/eidel/Scripts/autoxrandr.bash
 # Set monitor blank after 4.5 h (16200 seconds)
 exec xset s 16200 16200
 
-#Skype (uses too much cpu in standby)
-#exec skype
-#Pidgin
-exec pidgin
-#X-screensaver
 exec xscreensaver -no-splash
-
-#exec $HOME/Scripts/autostart-for-i3-simple.sh
-
-# "Remove" title bar
-#for_window [class="^.*"] border pixel 5
-#new_window 1pixel
+exec nm-applet

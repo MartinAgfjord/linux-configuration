@@ -1,6 +1,10 @@
 #!/bin/bash
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
+#Set linux config path variable, used in scripts
+LINUX_CONFIG_PATH=$SCRIPT_DIR
+echo '#!/bin/bash' > ~/.bash_generated
+echo "export LINUX_CONFIG_PATH=$LINUX_CONFIG_PATH" >> ~/.bash_generated
 # Remove old files
 rm -rf ~/.vim_old ~/.config/Terminal_old
 
