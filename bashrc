@@ -86,6 +86,11 @@ fi
 if [ -f ~/.bash_generated ]; then
     . ~/.bash_generated
 fi
+
+#Variables 
+if [ -f ~/.bash_variables ]; then
+    . ~/.bash_variables
+fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
