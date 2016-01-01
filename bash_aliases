@@ -110,3 +110,15 @@ find_class_in_jars() {
     find . -name '*.jar' -type f | xargs -i bash -c "jar -tf {}| tr / . | grep $1 && echo {}"
 }
 alias sjar='find_class_in_jars'
+
+dockerAll(){
+sudo docker ps -a | tail -n+2 | awk '{ print $1 }'
+}
+
+alias docker="sudo /usr/bin/docker"
+
+alias docker-all=dockerAll
+dockerRm() {
+    dockerAll | xargs -i bash -c "sudo docker stop {} > /dev/null && sudo docker rm {} > /dev/null"
+}
+alias docker-rm=dockerRm
