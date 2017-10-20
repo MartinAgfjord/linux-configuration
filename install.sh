@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
@@ -25,7 +25,7 @@ function configure_vim() {
 function download_and_install_light() {
     LIGHT_DIR="$SCRIPT_DIR/target/light"
     rm -f $LIGHT_DIR ; mkdir -p $LIGHT_DIR ; git clone https://github.com/haikarainen/light.git $LIGHT_DIR
-    cd $SCRIPT_DIR/target/light && make && sudo make install && cd -
+    cd $LIGHT_DIR && make && sudo make install && cd -
 }
 
 function configure_terminal() {
