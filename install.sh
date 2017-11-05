@@ -11,7 +11,7 @@ rm -rf ~/.vim_old ~/.config/Terminal_old
 
 function install_apt_dependencies() {
     echo "Need root password in order to install packages with apt"
-    sudo apt install -y vim chromium-browser i3-wm i3status dmenu xbacklight xfce4-terminal ctags help2man
+    sudo apt install -y vim chromium-browser i3-wm i3status dmenu xbacklight xfce4-terminal ctags help2man curl xscreensaver xscreensaver-gl-extra xscreensaver-data-extra
 }
 
 function configure_vim() {
@@ -42,6 +42,7 @@ function configure_git() {
 }
 
 function install_config_files() {
+    mv ~./profile ~./profile_old ; ln -s $SCRIPT_DIR/profile ~/.profile
     mv ~/.bashrc ~/.bashrc_old ; ln -s $SCRIPT_DIR/bashrc ~/.bashrc
     mv ~/.bash_aliases ~/.bash_aliases_old ; ln -s $SCRIPT_DIR/bash_aliases ~/.bash_aliases
     mv ~/.bash_variables ~/.bash_variables_old ; ln -s $SCRIPT_DIR/bash_variables ~/.bash_variables

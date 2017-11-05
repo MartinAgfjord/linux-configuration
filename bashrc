@@ -82,11 +82,6 @@ if [ -f ~/.work_aliases ]; then
     . ~/.work_aliases
 fi
 
-#Generated (not stored on github)
-if [ -f ~/.bash_generated ]; then
-    . ~/.bash_generated
-fi
-
 #Variables 
 if [ -f ~/.bash_variables ]; then
     . ~/.bash_variables

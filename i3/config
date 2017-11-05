@@ -171,11 +171,14 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Brightness
+bindsym XF86TouchpadToggle exec $LINUX_CONFIG_PATH/bin/toggle_xinput_touchpad.sh 2> /tmp/error.txt
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 
 #Lock screen
-bindsym $mod+Shift+Escape exec i3lock -c 000000
+#bindsym $mod+Shift+Escape exec i3lock -c 000000
+bindsym $mod+Mod1+L exec xscreensaver-command -lock
+
 #Suspend
 bindsym XF86PowerOff exec $LINUX_CONFIG_PATH/bin/lock-suspend.sh
 #Print screen
