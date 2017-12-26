@@ -199,3 +199,4 @@ exec xset s 16200 16200
 
 exec xscreensaver -no-splash
 exec nm-applet
+exec $LINUX_CONFIG_PATH/bin/battery_warning.sh&
