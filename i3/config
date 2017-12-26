@@ -172,8 +172,8 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Brightness
 bindsym XF86TouchpadToggle exec $LINUX_CONFIG_PATH/bin/toggle_xinput_touchpad.sh 2> /tmp/error.txt
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec light -A 1
+bindsym XF86MonBrightnessDown exec light -U 1
 
 #Lock screen
 #bindsym $mod+Shift+Escape exec i3lock -c 000000
